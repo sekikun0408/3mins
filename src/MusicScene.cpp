@@ -13,7 +13,7 @@ void MusicScene::Init()
 	readCSV(sceneCode);
 	UIInit(sceneCode);
 
-	SetFrame(0);
+	SetSceneFrame(0);
 	InjectorInit();
 	player.PlayerInit();
 }
@@ -24,7 +24,7 @@ void MusicScene::Update()
 	UIUpdate(sceneCode);
 	//Print(GetFrame());
 
-	InjectorUpdate(GetFrame());
+	InjectorUpdate(GetSceneFrame());
 	player.PlayerUpdate(w,f,f,f);
 
 

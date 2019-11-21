@@ -12,8 +12,8 @@ public:
 	virtual void Exit() {}
 
 	void UpdateFrame() { frame++; }
-	void SetFrame(int _f) { frame = _f; }
-	int GetFrame() { return frame; }
+	void SetSceneFrame(int _f) { frame = _f; }
+	int GetSceneFrame() { return frame; }
 private:
 	int frame;
 };

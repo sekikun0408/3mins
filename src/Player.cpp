@@ -10,8 +10,9 @@ Player::Player()
 	img_shield = Texture(U"data/slime_blue.png");
 	img_sword = Texture(U"data/slime_red.png");
 	img_wand = Texture(U"data/slime_purple.png");
+	img_attack = Texture(U"data/attack2.png");
+	hitBox = Rect(HITPOINT_1_X-48, HITPOINT_1_Y-5, HITPOINT_3_X - HITPOINT_2_X+ 96 ,5+5);
 
-	hitBox = Rect(HITPOINT_1_X-5, HITPOINT_1_Y-5, HITPOINT_3_X - HITPOINT_2_X+10,5+5);
 }
 
 
@@ -25,7 +26,16 @@ void Player::PlayerInit()
 
 void Player::PlayerUpdate(Walker *_walker, Fly *_fly, BaseObject *_c, BaseObject *_p)
 {
+
 	KeyDHit(_walker);
+	for (size_t i = 0; i < 5; i++)
+	{
+		//if (ss[i].isActive) {
+			ss[i].update();
+		//	break;
+		//}
+	}
+
 }
 
 void Player::PlayerDraw()
@@ -37,6 +47,15 @@ void Player::PlayerDraw()
 	img_wand({ 0,0,96,96 }).draw(PLAYER_WAND_X, PLAYER_WAND_Y);
 
 	hitBox.draw(ColorF(255, 0, 0, 0.5));
+
+	for (size_t i = 0; i < 5; i++)
+	{
+		//if (ss[i].isActive) {
+			ss[i].draw();
+		//	break;
+		//}
+	}
+	
 }
 
 void Player::PlayerExit()
@@ -73,6 +92,14 @@ bool Player::checkHitBad(BaseObject _b)
 void Player::KeyDHit(Walker *_w)
 {
 	if (KeyD.down()) {
+		for (size_t i = 0; i < 5; i++)
+		{
+			if (!ss[i].isActive) {
+				ss[i].isActive = true;
+				Print(i);
+				break;
+			}
+		}
 		for (int i = 0; i < MAX_WALKER; i++)
 		{
 			if (checkHitPerfect(_w[i]))
