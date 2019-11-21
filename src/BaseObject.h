@@ -37,6 +37,8 @@ public:
 	int GetState();
 	void SetSpwanPoint(int _p);
 	int GetSpwanPoint();
+	void SetEndPoint(int _p);
+	int GetEndPoint();
 	void SetStartTime(int _t);
 	int GetStartTime();
 	void SetArriveTime(int _t);
@@ -54,6 +56,7 @@ public:
 
 	void CheckSpwan(int _frame);
 	void UpdateFrame();
+	void ChangeState(int _state);
 
 private:
 	Pos pos;
@@ -66,6 +69,7 @@ private:
 
 	int state;
 	int spwanPoint; //1 to 4
+	int endPoint;	//1 to 3
 	int startTime;	//‚¢‚Âo‚Ä‚­‚é	 
 	int arriveTime;
 

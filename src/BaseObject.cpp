@@ -11,6 +11,15 @@ void BaseObject::UpdateFrame()
 	frame++;
 }
 
+void BaseObject::ChangeState(int _state)
+{
+	if (state != _state)
+	{
+		frame = 0;
+		state = _state;
+	}
+}
+
 
 
 void BaseObject::SetX(float _x)
@@ -132,6 +141,16 @@ void BaseObject::SetSpwanPoint(int _p)
 int BaseObject::GetSpwanPoint()
 {
 	return spwanPoint;
+}
+
+void BaseObject::SetEndPoint(int _p)
+{
+	endPoint = _p;
+}
+
+int BaseObject::GetEndPoint()
+{
+	return endPoint;
 }
 
 void BaseObject::SetStartTime(int _t)

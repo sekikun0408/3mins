@@ -1,4 +1,6 @@
 #include "Player.h"
+#include "SpwanInjector.h"
+
 
 
 
@@ -21,9 +23,9 @@ void Player::PlayerInit()
 {
 }
 
-void Player::PlayerUpdate()
+void Player::PlayerUpdate(Walker *_walker, Fly *_fly, BaseObject *_c, BaseObject *_p)
 {
-
+	KeyDHit(_walker);
 }
 
 void Player::PlayerDraw()
@@ -66,4 +68,59 @@ bool Player::checkHitBad(BaseObject _b)
 		return true;
 	}
 	return false;
+}
+
+void Player::KeyDHit(Walker *_w)
+{
+	if (KeyD.down()) {
+		for (int i = 0; i < MAX_WALKER; i++)
+		{
+			if (checkHitPerfect(_w[i]))
+			{
+				combo++;
+				score += 100;
+				_w[i].Dead();
+				Print(combo);
+				Print(score);
+				Print(_w[i].GetIsLive());
+
+			}
+			else if (checkHitGood(_w[i]))
+			{
+				combo++;
+				score += 75;
+				_w[i].Dead();
+				Print(combo);
+				Print(score);
+				Print(_w[i].GetIsLive());
+
+			}
+			else if (checkHitBad(_w[i]))
+			{
+				combo++;
+				score += 50;
+				_w[i].Dead();
+				Print(combo);
+				Print(score);
+				Print(_w[i].GetIsLive());
+
+			}
+
+
+		}
+	}
+
+}
+
+void Player::KeySHit(BaseObject *_c)
+{
+	
+}
+
+void Player::MouseHit(Fly *_fly)
+{
+}
+
+void Player::SpaceHit(BaseObject *_p)
+{
 }

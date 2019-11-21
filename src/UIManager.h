@@ -50,11 +50,16 @@
 													{SPWAN_POINT_3_X,SPWAN_POINT_3_Y},
 													{SPWAN_POINT_4_X,SPWAN_POINT_4_Y}, };
 
+	const Pos endPoint_pos[ENDPOINT_MAX]		= { {PLAYER_BOW_X		+ 48 ,PLAYER_BOW_Y},
+													{PLAYER_SHIELD_X	+ 48 ,PLAYER_SHIELD_Y },
+													{PLAYER_SWORD_X		+ 48 ,PLAYER_SWORD_Y}};
+
+
 	const Pos score_pos[SCORE_NUMBERIC]			= { {SCORE_1_X,  SCORE_ALL_Y},
 													{SCORE_2_X,  SCORE_ALL_Y},
 													{SCORE_3_X,  SCORE_ALL_Y},
-													{SCORE_4_X, SCORE_ALL_Y},
-													{SCORE_5_X, SCORE_ALL_Y},
+													{SCORE_4_X,  SCORE_ALL_Y},
+													{SCORE_5_X,  SCORE_ALL_Y},
 													{SCORE_6_X,  SCORE_ALL_Y},
 													{SCORE_7_X,  SCORE_ALL_Y},
 													{SCORE_8_X,  SCORE_ALL_Y}, };

@@ -18,6 +18,8 @@ public:
 	void Exit() override;
 
 	void Animation();
+	void Dead();
+	void Attack();
 
 	void MovingPattern1(Pos _EndPoint) override;
 	void MovingPattern2(Pos _EndPoint) override;

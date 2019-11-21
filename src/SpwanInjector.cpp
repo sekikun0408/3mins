@@ -58,14 +58,15 @@ void readCSV(SCENE _code)
 		int point = Parse<int>(reader.get(x, 1));
 		int startTime = Parse<int>(reader.get(x, 2));
 		int arriveTime = Parse<int>(reader.get(x, 3));
-		int speed = Parse<float>(reader.get(x, 4));
-
+		float speed = Parse<float>(reader.get(x, 4));
+		int endpoint = Parse<int>(reader.get(x, 5));
 
 
 
 		if (reader.get(x, 0) == U"1")
 		{
 			w[type1].SetSpwanPoint(point);
+			w[type1].SetEndPoint(endpoint);
 			w[type1].SetW(96);
 			w[type1].SetH(96);
 			w[type1].SetStartTime(arriveTime - 400);
